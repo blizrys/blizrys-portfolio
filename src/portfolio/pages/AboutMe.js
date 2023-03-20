@@ -1,104 +1,108 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-
-const Accordion = styled((props) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  '&:not(:last-child)': {
-    borderBottom: 0,
-  },
-  '&:before': {
-    display: 'none',
-  },
-}));
-
-const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-    {...props}
-  />
-))(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === 'dark'
-      ? 'rgba(255, 255, 255, .05)'
-      : 'rgba(0, 0, 0, .03)',
-  flexDirection: 'row-reverse',
-  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(90deg)',
-  },
-  '& .MuiAccordionSummary-content': {
-    marginLeft: theme.spacing(1),
-  },
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
-  borderTop: '1px solid rgba(0, 0, 0, .125)',
-}));
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import Avatar from '@mui/material/Avatar';
 
 export default function AboutMe() {
-  const [expanded, setExpanded] = React.useState('panel1');
-
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
-
   return (
-    <div>
-      <Accordion
-        expanded={expanded === 'panel1'}
-        onChange={handleChange('panel1')}
-      >
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Collapsible Group Item #1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+    <Grid
+      container
+      spacing={2}
+      // alignItems="center"
+      justifyContent="center"
+      // style={{ minHeight: '100vh' }}
+      sx={{
+        bgcolor: 'background.paper',
+        pt: 10,
+        pb: 6,
+        minHeight: '100vh',
+      }}
+    >
+      <Grid item xs={12}>
+        <Typography
+          component="h1"
+          variant="h2"
+          color="text.primary"
+          align="center"
+        >
+          About Me
+        </Typography>
+      </Grid>
+      <Grid item xs={7}>
+        <Typography>
+          Analytical, innovative, and progressive system analyst with 7 years of
+          overseas experience in a multinational oil and gas company, looking to
+          leverage analytical and communication skills as a data analyst.
+          Currently studying the final semester of the Master of Data Science
+          (MDS) at Monash University as a Minor thesis researcher specializing
+          in natural language processing (NLP). The project involves knowledge
+          in machine learning, data analytics, and modeling, data visualization,
+          and data engineering that associate with data analysis tools and
+          frameworks such as Python (Pytorch, Matplotlib, Pandas, Numpy), R, SQL
+          (SQL Server, MySQL), JavaScript (d3.js, AngularJS), PowerBI and
+          Tableau. With additional soft skills of project management and
+          problem-solving.
+        </Typography>
+      </Grid>
+      <Grid item xs={3}>
+        <Avatar
+          alt="Remy Sharp"
+          src="/static/images/avatar/1.jpg"
+          sx={{ width: 200, height: 200 }}
+        />
+      </Grid>
+      <Grid item xs={10}>
+        <FormControlLabel
+          control={<Switch defaultUnchecked />}
+          label="Be Real"
+        />
+      </Grid>
+      {/* <Grid item xs={3}>
+        <Box display="flex" flexDirection="column">
+          <Typography
+            component="h1"
+            variant="h5"
+            color="text.primary"
+            gutterBottom
+          >
+            Hi. My name is
           </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === 'panel2'}
-        onChange={handleChange('panel2')}
-      >
-        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Collapsible Group Item #2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+          <Typography
+            component="h1"
+            variant="h2"
+            color="text.primary"
+            gutterBottom
+          >
+            Jirarote Jirasirikul (JJ)
           </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === 'panel3'}
-        onChange={handleChange('panel3')}
-      >
-        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Collapsible Group Item #3</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+          <Typography
+            component="h1"
+            variant="h4"
+            color="text.primary"
+            gutterBottom
+          >
+            BEER, GEEK, ADRENALINE JUNKIE
           </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+          <Typography>
+            JACK-OF-ALL-TRADES in IT because of my passion to deliver products
+            from start-to-end.
+          </Typography>
+          <Typography>
+            Started as Programmer in middle school because of interest in
+            Robotics and MMORPG Games (Ragnarok Online).
+          </Typography>
+          <Typography>
+            Ended up as System Engineer / Data Scienctist / Full-Stack Developer
+            *** whatsoever ***
+          </Typography>
+          <Typography>
+            ... that is very happy every time customers used my solution.
+          </Typography>
+        </Box>
+      </Grid> */}
+    </Grid>
   );
 }

@@ -44,7 +44,7 @@ export default function Portfolio() {
     setPageView(page);
   }
 
-  const [pageView, setPageView] = useState('');
+  const [pageView, setPageView] = useState('About Me');
 
   return (
     <ThemeProvider theme={theme}>
