@@ -34,17 +34,17 @@ function Copyright() {
   );
 }
 
-const navPages = ['About Me', 'Experience', 'Projects', 'Contact'];
+const navPages = ['About Me', 'Experience', 'Projects'];
 const theme = createTheme();
 
 export default function Portfolio() {
+  const [pageView, setPageView] = useState('Main');
+
   function handlePagesClick(page) {
     console.log(page);
     // Changing state
     setPageView(page);
   }
-
-  const [pageView, setPageView] = useState('About Me');
 
   return (
     <ThemeProvider theme={theme}>

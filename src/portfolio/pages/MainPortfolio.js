@@ -1,9 +1,19 @@
 import * as React from 'react';
+import { useState } from 'react';
+
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 
 export default function MainPortfolio() {
+  const [linkedInView, setLinkedInView] = useState(true);
+
+  const toggle = () => {
+    setLinkedInView(!linkedInView);
+  };
+
   return (
     <Grid
       container
@@ -31,30 +41,31 @@ export default function MainPortfolio() {
           >
             Jirarote Jirasirikul (JJ)
           </Typography>
-          <Typography
-            component="h1"
-            variant="h4"
-            color="text.primary"
-            gutterBottom
-          >
-            BEER, GEEK, ADRENALINE JUNKIE
-          </Typography>
-          <Typography>
-            JACK-OF-ALL-TRADES in IT because of my passion to deliver products
-            from start-to-end.
-          </Typography>
-          <Typography>
-            Started as Programmer in middle school because of interest in
-            Robotics and MMORPG Games (Ragnarok Online).
-          </Typography>
-          <Typography>
-            Ended up as System Engineer / Data Scienctist / Full-Stack Developer
-            *** whatsoever ***
-          </Typography>
-          <Typography>
-            ... that is very happy every time customers used my solution.
-          </Typography>
+
+          {linkedInView ? (
+            <Typography
+              component="h1"
+              variant="h4"
+              color="text.primary"
+              gutterBottom
+            >
+              System Specialist | Data Analyst
+            </Typography>
+          ) : (
+            <Typography
+              component="h1"
+              variant="h4"
+              color="text.primary"
+              gutterBottom
+            >
+              Beer | Geek | Adrenaline Junkie
+            </Typography>
+          )}
         </Box>
+        <FormControlLabel
+          control={<Switch defaultUnchecked onChange={toggle} />}
+          label="Be Real"
+        />
       </Grid>
     </Grid>
   );
