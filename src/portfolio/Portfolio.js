@@ -51,13 +51,14 @@ export default function Portfolio() {
       <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
-          <Typography
+          <Button
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            onClick={() => handlePagesClick('Main')}
           >
             Jirarote Jirasirikul (JJ) - @BlizRyS
-          </Typography>
+          </Button>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navPages.map((page) => (
               <Button
